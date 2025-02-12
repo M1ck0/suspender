@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Suspender",
+  "version": "1.0",
+  "permissions": ["tabs", "alarms", "storage"],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
