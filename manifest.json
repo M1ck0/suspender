@@ -8,5 +8,19 @@
   },
   "action": {
     "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "icons/128.png",
+    "48": "icons/48.png",
+    "32": "icons/32.png",
+    "16": "icons/16.png"
+  },
+  "action": {
+    "default_icon": "icons/128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "miletadulovic98@gmail.com"
+    }
   }
 }
