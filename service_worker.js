@@ -1,4 +1,4 @@
-const DEFAULT_INACTIVITY_TIME = 300; // in sec
+const DEFAULT_INACTIVITY_TIME = 10; // in sec
 let inactivityTime = DEFAULT_INACTIVITY_TIME;
 
 // Track last active time of tabs
@@ -10,7 +10,8 @@ function suspendInactiveTabs() {
     const now = Date.now();
 
     tabs.forEach((tab) => {
-      if (!tab.active && tab.id && tab.status === "complete") {
+      if (!tab.active && tab.id && !tab.audible && tab.status === "complete") {
+        console.log(tab);
         const lastActive = tabLastActive.get(tab.id);
 
         if (!lastActive) {
@@ -40,7 +41,7 @@ chrome.tabs.onActivated.addListener(({ tabId }) => {
 });
 
 // Check tabs periodically
-chrome.alarms.create("checkTabs", { periodInMinutes: 0.5 });
+chrome.alarms.create("checkTabs", { periodInMinutes: 0.1 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "checkTabs") {
